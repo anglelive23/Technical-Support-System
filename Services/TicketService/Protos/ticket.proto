@@ -1,0 +1,92 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "TicketService";
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+service GrpcTicketsService {
+    rpc GetAllTickets(google.protobuf.Empty) returns (GrpcTicketsRespone);
+    rpc GetTicket(GrpcTicketId) returns(GrpcTicketModel);
+}
+
+message GrpcTicketsRespone {
+    repeated GrpcTicketModel tickets = 1;
+}
+
+message GrpcTicketId {
+    int32 id = 1;
+}
+
+message GrpcTicketModel {
+    int32 id = 1;
+    string title = 2;
+    google.protobuf.StringValue description = 3;
+    google.protobuf.StringValue clientId = 4;
+    GrpcApplicationUserModel client = 5;
+    google.protobuf.StringValue employeeId = 6;
+    GrpcApplicationUserModel employee = 7;
+    int32 priorityId = 8;
+    GrpcPriorityModel priority = 9;
+    int32 departmentId = 10;
+    GrpcDepartmentModel department = 11;
+    int32 projectId = 12;
+    GrpcProjectModel project = 13;
+    int32 statusId = 14;
+    GrpcStatusModel status = 15;
+    int32 companyId = 16;
+    GrpcCompanyModel company = 17;
+    string phoneNumber = 18;
+    string email = 19;
+    google.protobuf.Timestamp dateCreated = 20;
+    google.protobuf.Timestamp lastSeen = 21;
+    google.protobuf.Timestamp estimatedTime = 22;
+    google.protobuf.StringValue reporter = 23;
+}
+
+message GrpcApplicationUserModel {
+    string firstName = 1;
+    string lastName = 2;
+}
+
+message GrpcCommentModel {
+    int32 id = 1;
+    string content = 2;
+    int32 userId = 3;
+    int32 ticketId = 4;
+}
+
+message GrpcDepartmentModel {
+    int32 id = 1;
+    string name = 2;
+}
+
+message GrpcCompanyModel {
+    int32 id = 1;
+    string name = 2;
+}
+
+message GrpcStatusModel {
+    int32 id = 1;
+    string name = 2;
+}
+
+message GrpcProjectModel {
+    int32 id = 1;
+    string name = 2;
+}
+
+message GrpcRefreshTokenModel {
+    string token = 1;
+    google.protobuf.Timestamp expiresOn = 2;
+    bool isExpired = 3;
+    google.protobuf.Timestamp createdOn = 4;
+    google.protobuf.Timestamp revokedOn = 5;
+    bool isActive = 6;
+}
+
+message GrpcPriorityModel {
+    int32 id = 1;
+    string name = 2;
+}

@@ -1,0 +1,16 @@
+﻿global using Mapster;
+global using Serilog;
+global using Grpc.Core;
+global using Utils.REPO;
+global using TicketService.Services;
+global using TicketService.Entities.Data;
+global using TicketService.Entities.Repos;
+global using Microsoft.EntityFrameworkCore;
+global using TicketService.Entities.Models;
+global using Microsoft.AspNetCore.Identity;
+global using TicketService.Entities.Helpers;
+global using Google.Protobuf.WellKnownTypes;
+global using System.ComponentModel.DataAnnotations;
+global using static TicketService.GrpcTicketsService;
+global using System.ComponentModel.DataAnnotations.Schema;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;

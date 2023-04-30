@@ -45,3 +45,5 @@ To-do List:
 
 5- Status Service
 
+6- Auth Service
+
